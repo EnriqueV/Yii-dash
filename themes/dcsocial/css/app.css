@@ -1,0 +1,52 @@
+
+.list-view {
+    display: none;
+}
+
+.nav.operations a{
+    display: inline-block;
+    padding: 0 15px;
+}
+.nav.operations > li {
+    display: inline-block;
+}
+.m0{
+    margin:0;
+}
+
+.col-wrap{
+    position: relative;
+    display: block;
+}
+.columns{
+    position: absolute;
+    left: 3px;
+    top: 3px;
+}
+.gen-code{
+    margin: 5px;
+    padding: 5px;
+}
+
+.errorMessage{
+    color: #ff0000;
+}
+.custom-button-menu{
+    margin-right: 10px;
+}
+.custom-button-menu a{
+    color: white !important;
+}
+
+aside  .nav > li > a:hover,aside  .nav > li > a:focus,
+aside  .nav > li.active{
+    background-color: #e33244;
+    border-color: #e33244;
+}
+
+/** OCULTAR BOTON VER DE LA LISTA **/
+
+/*#pricelist a.view{
+    display: none;
+}*/
+

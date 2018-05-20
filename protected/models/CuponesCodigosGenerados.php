@@ -1,0 +1,105 @@
+<?php
+
+/**
+ * This is the model class for table "cupones_codigos_generados".
+ *
+ * The followings are the available columns in table 'cupones_codigos_generados':
+ * @property integer $id
+ * @property string $codigo
+ * @property integer $cupon_descuento_id
+ * @property integer $userId
+ *
+ * The followings are the available model relations:
+ * @property User $user
+ */
+class CuponesCodigosGenerados extends CActiveRecord
+{
+	/**
+	 * @return string the associated database table name
+	 */
+	public function tableName()
+	{
+		return 'cupones_codigos_generados';
+	}
+
+	/**
+	 * @return array validation rules for model attributes.
+	 */
+	public function rules()
+	{
+		// NOTE: you should only define rules for those attributes that
+		// will receive user inputs.
+		return array(
+			array('codigo, cupon_descuento_id, userId', 'required'),
+			array('cupon_descuento_id, userId', 'numerical', 'integerOnly'=>true),
+			array('codigo', 'length', 'max'=>75),
+			// The following rule is used by search().
+			// @todo Please remove those attributes that should not be searched.
+			array('id, codigo, cupon_descuento_id, userId', 'safe', 'on'=>'search'),
+		);
+	}
+
+	/**
+	 * @return array relational rules.
+	 */
+	public function relations()
+	{
+		// NOTE: you may need to adjust the relation name and the related
+		// class name for the relations automatically generated below.
+		return array(
+			'user' => array(self::BELONGS_TO, 'User', 'userId'),
+		);
+	}
+
+	/**
+	 * @return array customized attribute labels (name=>label)
+	 */
+	public function attributeLabels()
+	{
+		return array(
+			'id' => 'ID',
+			'codigo' => 'Codigo',
+			'cupon_descuento_id' => 'Cupon Descuento',
+			'userId' => 'User',
+		);
+	}
+
+	/**
+	 * Retrieves a list of models based on the current search/filter conditions.
+	 *
+	 * Typical usecase:
+	 * - Initialize the model fields with values from filter form.
+	 * - Execute this method to get CActiveDataProvider instance which will filter
+	 * models according to data in model fields.
+	 * - Pass data provider to CGridView, CListView or any similar widget.
+	 *
+	 * @return CActiveDataProvider the data provider that can return the models
+	 * based on the search/filter conditions.
+	 */
+	public function search()
+	{
+		// @todo Please modify the following code to remove attributes that should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('id',$this->id);
+		$criteria->compare('codigo',$this->codigo,true);
+		$criteria->compare('cupon_descuento_id',$this->cupon_descuento_id);
+		$criteria->compare('userId',$this->userId);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+
+	/**
+	 * Returns the static model of the specified AR class.
+	 * Please note that you should have this exact method in all your CActiveRecord descendants!
+	 * @param string $className active record class name.
+	 * @return CuponesCodigosGenerados the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+}

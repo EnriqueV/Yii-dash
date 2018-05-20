@@ -1,0 +1,25 @@
+
+### JetBrains template
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+
+.idea/
+
+assets/*
+!assets/.gitignore
+protected/runtime/*
+!protected/runtime/.gitignore
+protected/data/*.db
+/images/banners/
+/images/cupones/
+/images/noticias/
+/images/piscos/
+/images/miembros/
+/images/gastronomia/
+!/images/cupones/.gitignore
+!/images/noticias/.gitignore
+!/images/piscos/.gitignore
+!/images/banners/.gitignore
+!/images/miembros/.gitignore
+!/images/gastronomia/.gitignore
